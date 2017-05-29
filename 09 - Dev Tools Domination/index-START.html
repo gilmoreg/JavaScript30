@@ -22,24 +22,55 @@
     // Interpolated
 
     // Styled
+    console.log('%c i am some great text', 'font-size: 20px; background: red;');
 
     // warning!
+    console.warn('oh no');
 
     // Error :|
+    console.error('oh no!');
 
     // Info
+    console.info('information!');
 
     // Testing
+    console.assert(1 === 1, 'that is wrong!'); // displays nothing
+    console.assert(1 === 2, 'that is wrong!');
 
     // clearing
+    console.clear();
 
     // Viewing DOM Elements
+    const p = document.querySelector('p');
+    console.log(p);
+    console.dir(p); // show all DOM properties
 
+    console.clear();
     // Grouping together
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.groupEnd(`${dog.name}`);
+    });
 
     // counting
+    console.count('years');
+    console.count('years');
+    console.count('years');
+    console.count('hours');
+    console.count('years');
+    console.count('years');
 
     // timing
+    console.time('fetching data');
+    fetch('https://api.github.com/users/wesbos')
+    .then(data => data.json())
+    .then(data => {
+      console.timeEnd('fetching data');
+      console.log(data);
+    });
 
   </script>
 </body>
